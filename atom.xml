@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://rscarvalho.github.io/atom.xml" rel="self"/>
+  <link href="http://rscarvalho.github.io/"/>
+  <updated>2013-11-09T11:04:38-02:00</updated>
+  <id>http://rscarvalho.github.io/</id>
+  <author>
+    <name><![CDATA[Rodolfo Carvalho]]></name>
+    <email><![CDATA[rodolfo.ueg@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Initial Post]]></title>
+    <link href="http://rscarvalho.github.io/blog/2013/11/09/initial-post/"/>
+    <updated>2013-11-09T10:59:00-02:00</updated>
+    <id>http://rscarvalho.github.io/blog/2013/11/09/initial-post</id>
+    <content type="html"><![CDATA[<p>This is just some random post with no relevant data.</p>
+]]></content>
+  </entry>
+  
+</feed>
