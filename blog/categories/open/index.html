@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
+  <title>Category: open - My Octopress Blog</title>
   <meta name="author" content="Rodolfo Carvalho">
 
   
-  <meta name="description" content="Today I have been rolled a new version of PyRegex, with quite a big changeset on the backend.
-PyRegex users are not expected to see any changes &hellip;">
+  <meta name="description" content="Category: open">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ PyRegex users are not expected to see any changes &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rscarvalho.github.io">
+  <link rel="canonical" href="http://rscarvalho.github.ioblog/categories/open">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
@@ -64,97 +63,40 @@ PyRegex users are not expected to see any changes &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/14/pyregex-has-been-updated/">PyRegex Has Been Updated!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-14T19:02:00-04:00" pubdate data-updated="true">Jun 14<span>th</span>, 2014</time>
-        
-      </p>
+    <h1 class="entry-title">Category: Open</h1>
     
   </header>
+  
+  <div id="blog-archives" class="category">
 
 
-  <div class="entry-content"><p>Today I have been rolled a new version of <a href="http://www.pyregex.com">PyRegex</a>, with quite a big changeset on the backend.
-PyRegex users are not expected to see any changes neither in behavior nor UI, but I&rsquo;d like to cover the changes here in more detail.
-The basic topics are:</p>
 
-<ul>
-<li>Flask as python webapp framework</li>
-<li>Python 3.4</li>
-</ul>
+  
+  <h2>2014</h2>
+
+<article>
+  
+<h1><a href="/blog/2014/06/14/pyregex-has-been-updated/">PyRegex has been updated!</a></h1>
+<time datetime="2014-06-14T19:02:00-04:00" pubdate><span class='month'>Jun</span> <span class='day'>14</span> <span class='year'>2014</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/open/'>open</a>, <a class='category' href='/blog/categories/pyregex/'>pyregex,</a>, <a class='category' href='/blog/categories/python/'>python,</a>, <a class='category' href='/blog/categories/regex/'>regex,</a>, <a class='category' href='/blog/categories/source/'>source</a></span>
+</footer>
 
 
-<h2>Flask as python webapp framework</h2>
+</article>
 
-<p>As some of you know, PyRegex started as a Google AppEngine app back in 2009. At that time, it was the only viable option given the project has no funding,
-so it had to run on a free hosting provider. After the first release, I got some personal issues and wasn&rsquo;t able to maintain the project for a long time.</p>
-
-<p>In 2013 I have decided do rebuild PyRegex from scratch. It was still on Google AppEngine, but I made use of some cool stuff on the frontend:
-HTML5 and <a href="http://angularjs.org">AngularJS</a>.
-On the backend I have changed the strategy, focusing on a RESTful API using <a href="http://webapp-improved.appspot.com/">webapp2</a>,
-which is already included by default in the Google AppEngine SDK. The result was good overall (especially on the UI side), but the final product
-were a bit overcomplicated and hard to maintain.</p>
-
-<p>Unfortunately I had to move away from Google AppEngine due to restrictions on the runtime. I ended up hosting it on Heroku <sup>
-[<a href="https://github.com/rscarvalho/pyregex/issues/9">1</a>][<a href="http://heroku.com">2</a>]
-</sup>. I decided to keep <code>webapp2</code> as the web framework because it also runs outside Google AppEngine.</p>
-
-<p>But as of now, I decided to remove the last Google AppEngine reference to PyRegex, and it is now a &ldquo;pure python&rdquo; application.</p>
-
-<p>Recently I have looked at the <a href="http://flask.pocoo.org">Flask webapp microframework</a>. It&rsquo;s a very interesting project, very simple and flexible, which gives
-power to the developer to do some really cool things.
-application running on heroku.</p>
-
-<p>PyRegex has now ported its API server to run on Flask without any drawbacks.</p>
-
-<h2>Bumped runtime version to Python 3.4</h2>
-
-<p>Yes, I did it. PyRegex is officially running on py3k now. Some of you may say &ldquo;But the majority of projects are still running on Python 2.x.
-Python 2.x EOL <a href="http://legacy.python.org/dev/peps/pep-0373/">is set for 2020</a>&rdquo;.</p>
-
-<p><img src="https://i.imgflip.com/9knu7.jpg" alt="Migrate to Python 3" /></p>
-
-<p>I have been planning to make this change for a long time, but I didn&rsquo;t manage my time to do so until now.
-Python 3 is up for <a href="https://www.python.org/download/releases/3.0/">more than 5 years now</a>, and it&rsquo;s more than time for people and organizations to migrate.</p>
-
-<p>And time has come to PyRegex. It&rsquo;s on Python 3.4 and it&rsquo;s not expected that you run into any issues testing your regular expressions, given the regex
-matches didn&rsquo;t change from Python 2.x to 3.x.</p>
-
-<p>As usual, you are more than welcome to <a href="https://github.com/rscarvalho/pyregex">fork the project</a> on Github and/or <a href="https://github.com/rscarvalho/pyregex/issues">create an issue</a> if you run into any problems!</p>
 </div>
-  
-  
 
-
-    </article>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+</article>
+
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -171,7 +113,7 @@ matches didn&rsquo;t change from Python 2.x to 3.x.</p>
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/rscarvalho">@rscarvalho</a> on GitHub
@@ -203,6 +145,7 @@ matches didn&rsquo;t change from Python 2.x to 3.x.</p>
 
   
 </aside>
+
 
     </div>
   </div>
