@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://rscarvalho.github.io/atom.xml" rel="self"/>
   <link href="http://rscarvalho.github.io/"/>
-  <updated>2014-06-14T19:58:12-04:00</updated>
+  <updated>2014-06-15T13:21:52-04:00</updated>
   <id>http://rscarvalho.github.io/</id>
   <author>
     <name><![CDATA[Rodolfo Carvalho]]></name>
@@ -19,19 +19,18 @@
     <updated>2014-06-14T19:02:00-04:00</updated>
     <id>http://rscarvalho.github.io/blog/2014/06/14/pyregex-has-been-updated</id>
     <content type="html"><![CDATA[<p>Today I have been rolled a new version of <a href="http://www.pyregex.com">PyRegex</a>, with quite a big changeset on the backend.
-PyRegex users are not expected to see any changes neither in behavior nor UI, but I&rsquo;d like to cover the changes here in more detail.
+PyRegex users are not expected to see any changes neither in behavior nor UI, but I’d like to cover the changes here in more detail.
 The basic topics are:</p>
 
 <ul>
-<li>Flask as python webapp framework</li>
-<li>Python 3.4</li>
+  <li>Flask as python webapp framework</li>
+  <li>Python 3.4</li>
 </ul>
 
-
-<h2>Flask as python webapp framework</h2>
+<h4 id="flask-as-python-webapp-framework">Flask as python webapp framework</h4>
 
 <p>As some of you know, PyRegex started as a Google AppEngine app back in 2009. At that time, it was the only viable option given the project has no funding,
-so it had to run on a free hosting provider. After the first release, I got some personal issues and wasn&rsquo;t able to maintain the project for a long time.</p>
+so it had to run on a free hosting provider. After the first release, I got some personal issues and wasn’t able to maintain the project for a long time.</p>
 
 <p>In 2013 I have decided do rebuild PyRegex from scratch. It was still on Google AppEngine, but I made use of some cool stuff on the frontend:
 HTML5 and <a href="http://angularjs.org">AngularJS</a>.
@@ -43,28 +42,31 @@ were a bit overcomplicated and hard to maintain.</p>
 [<a href="https://github.com/rscarvalho/pyregex/issues/9">1</a>][<a href="http://heroku.com">2</a>]
 </sup>. I decided to keep <code>webapp2</code> as the web framework because it also runs outside Google AppEngine.</p>
 
-<p>But as of now, I decided to remove the last Google AppEngine reference to PyRegex, and it is now a &ldquo;pure python&rdquo; application.</p>
+<p>But as of now, I decided to remove the last Google AppEngine reference to PyRegex, and it is now a “pure python” application.</p>
 
-<p>Recently I have looked at the <a href="http://flask.pocoo.org">Flask webapp microframework</a>. It&rsquo;s a very interesting project, very simple and flexible, which gives
+<p>Recently I have looked at the <a href="http://flask.pocoo.org">Flask webapp microframework</a>. It’s a very interesting project, very simple and flexible, which gives
 power to the developer to do some really cool things.
 application running on heroku.</p>
 
 <p>PyRegex has now ported its API server to run on Flask without any drawbacks.</p>
 
-<h2>Bumped runtime version to Python 3.4</h2>
+<p>&nbsp;</p>
 
-<p>Yes, I did it. PyRegex is officially running on py3k now. Some of you may say &ldquo;But the majority of projects are still running on Python 2.x.
-Python 2.x EOL <a href="http://legacy.python.org/dev/peps/pep-0373/">is set for 2020</a>&rdquo;.</p>
+<h4 id="bumped-runtime-version-to-python-34">Bumped runtime version to Python 3.4</h4>
+
+<p>Yes, I did it. PyRegex is officially running on py3k now. Some of you may say “But the majority of projects are still running on Python 2.x.
+Python 2.x EOL <a href="http://legacy.python.org/dev/peps/pep-0373/">is set for 2020</a>”.</p>
 
 <p><img src="https://i.imgflip.com/9knu7.jpg" alt="Migrate to Python 3" /></p>
 
-<p>I have been planning to make this change for a long time, but I didn&rsquo;t manage my time to do so until now.
-Python 3 is up for <a href="https://www.python.org/download/releases/3.0/">more than 5 years now</a>, and it&rsquo;s more than time for people and organizations to migrate.</p>
+<p>I have been planning to make this change for a long time, but I didn’t manage my time to do so until now.
+Python 3 is up for <a href="https://www.python.org/download/releases/3.0/">more than 5 years now</a>, and it’s more than time for people and organizations to migrate.</p>
 
-<p>And time has come to PyRegex. It&rsquo;s on Python 3.4 and it&rsquo;s not expected that you run into any issues testing your regular expressions, given the regex
-matches didn&rsquo;t change from Python 2.x to 3.x.</p>
+<p>And time has come to PyRegex. It’s on Python 3.4 and it’s not expected that you run into any issues testing your regular expressions, given the regex
+matches didn’t change from Python 2.x to 3.x.</p>
 
 <p>As usual, you are more than welcome to <a href="https://github.com/rscarvalho/pyregex">fork the project</a> on Github and/or <a href="https://github.com/rscarvalho/pyregex/issues">create an issue</a> if you run into any problems!</p>
+
 ]]></content>
   </entry>
   
