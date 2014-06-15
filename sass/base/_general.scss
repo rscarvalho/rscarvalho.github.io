@@ -349,6 +349,7 @@ table.plain {
     color: #fff;
     text-decoration: none;
     transition: none;
+    text-shadow: #404040 -2px 2px;
 }
 
 .no-rollover:hover {
@@ -370,6 +371,30 @@ table.plain {
     color: #fff;
     background: url('/images/background.jpg') #303538 no-repeat center center;
     background-size: cover;
+}
+
+.main-navigation {
+    text-align: center;
+
+    li {
+        display: inline-block;
+
+        a {
+            font-family: 'Open Sans', sans-serif;
+            text-decoration: none;
+        }
+
+        &:after {
+            content: '•';
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        &:last-child:after {
+            content: none;
+            margin: 0;
+        }
+    }
 }
 
 /* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
@@ -404,6 +429,7 @@ table.plain {
     font-weight: 300;
     font-family: 'Droid Serif', serif;
     letter-spacing: 0;
+    text-shadow: #404040 -1px 1px;
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
@@ -865,10 +891,12 @@ table.plain {
 
     .blog-title {
         font-size: 3rem;
+        text-shadow: -2px 2px;
     }
 
     .blog-description {
         font-size: 1.5rem;
+        text-shadow: #404040 -1px 1px;
     }
 
 
