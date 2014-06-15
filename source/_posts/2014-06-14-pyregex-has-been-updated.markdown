@@ -13,7 +13,8 @@ The basic topics are:
 * Flask as python webapp framework
 * Python 3.4
 
-## Flask as python webapp framework
+
+#### Flask as python webapp framework
 
 As some of you know, PyRegex started as a Google AppEngine app back in 2009. At that time, it was the only viable option given the project has no funding,
 so it had to run on a free hosting provider. After the first release, I got some personal issues and wasn't able to maintain the project for a long time.
@@ -36,7 +37,9 @@ application running on heroku.
 
 PyRegex has now ported its API server to run on Flask without any drawbacks.
 
-## Bumped runtime version to Python 3.4
+<p>&nbsp;</p>
+
+#### Bumped runtime version to Python 3.4
 
 Yes, I did it. PyRegex is officially running on py3k now. Some of you may say "But the majority of projects are still running on Python 2.x.
 Python 2.x EOL [is set for 2020](http://legacy.python.org/dev/peps/pep-0373/)".
