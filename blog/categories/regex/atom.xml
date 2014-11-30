@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: regex, | Rodolfo Carvalho]]></title>
+  <title><![CDATA[Category: regex | Rodolfo Carvalho]]></title>
   <link href="http://rscarvalho.github.io/blog/categories/regex/atom.xml" rel="self"/>
   <link href="http://rscarvalho.github.io/"/>
-  <updated>2014-06-16T09:50:16-04:00</updated>
+  <updated>2014-11-30T11:29:49-05:00</updated>
   <id>http://rscarvalho.github.io/</id>
   <author>
     <name><![CDATA[Rodolfo Carvalho]]></name>
@@ -26,6 +26,8 @@ The basic topics are:</p>
   <li>Flask as python webapp framework</li>
   <li>Python 3.4</li>
 </ul>
+
+<!--more-->
 
 <h4 id="flask-as-python-webapp-framework">Flask as python webapp framework</h4>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Rodolfo Carvalho]]></title>
   <link href="http://rscarvalho.github.io/atom.xml" rel="self"/>
   <link href="http://rscarvalho.github.io/"/>
-  <updated>2014-06-16T09:50:16-04:00</updated>
+  <updated>2014-11-30T11:29:49-05:00</updated>
   <id>http://rscarvalho.github.io/</id>
   <author>
     <name><![CDATA[Rodolfo Carvalho]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Taking advantage of your rails model generator]]></title>
+    <link href="http://rscarvalho.github.io/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/"/>
+    <updated>2014-11-30T09:51:26-05:00</updated>
+    <id>http://rscarvalho.github.io/blog/2014/11/30/taking-advantage-of-your-rails-model-generator</id>
+    <content type="html"><![CDATA[<p>This is a quick trick I haven’t explored until now (no really, didn’t know it like 5 minute ago).</p>
+
+<p>When you’re calling <code>rails g model</code> to generate your models, you have the option to pass in the field names inline, like this:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">$ rails g model UserRole user_id:integer role_id:integer extra_permissions:text</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>The example above has something interesting: you create two columns of type <code>integer</code>: <code>role_id</code> and <code>user_id</code>. What you really want to express, however, is that you want ot hook up two <em>associations</em> in your <code>UserRole</code> model: <code>belongs_to :role</code> and <code>belongs_to :user</code>. After you generate this migration, you may have to do a couple of things by hand:</p>
+
+<ul>
+  <li>add <code>add_index</code> commands on the migration to create the index on <code>role_id</code> and <code>user_id</code> <strong>before</strong> running <code>rake db:migrate</code></li>
+  <li>add <code>belongs_to</code> associations in <code>app/models/user_role.rb</code></li>
+</ul>
+
+<p>Well, all of this manual typing can be just eliminated if you use this syntax instead:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">$ rails g model UserRole user:belongs_to role:belongs_to extra_permissions:text</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<!--more-->
+
+<p>That’s it! We express the model with its <strong>data relations</strong> instead of raw database columns. As you can see in the generated code, rails already included the appropriate <code>belongs_to</code> and indexes to the files, like below:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>app/models/user_role.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">class</span> <span class="nc">UserRole</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class="line">  <span class="n">belongs_to</span> <span class="ss">:user</span>
+</span><span class="line">  <span class="n">belongs_to</span> <span class="ss">:role</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>And to the migration file:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>db/migrate/20141130144340_create_user_roles.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">class</span> <span class="nc">CreateUserRoles</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+</span><span class="line">  <span class="k">def</span> <span class="nf">change</span>
+</span><span class="line">    <span class="n">create_table</span> <span class="ss">:user_roles</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class="line">      <span class="n">t</span><span class="o">.</span><span class="n">belongs_to</span> <span class="ss">:user</span><span class="p">,</span> <span class="ss">index</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class="line">      <span class="n">t</span><span class="o">.</span><span class="n">belongs_to</span> <span class="ss">:role</span><span class="p">,</span> <span class="ss">index</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class="line">      <span class="n">t</span><span class="o">.</span><span class="n">text</span> <span class="ss">:extra_permissions</span>
+</span><span class="line">
+</span><span class="line">      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
+</span><span class="line">    <span class="k">end</span>
+</span><span class="line">  <span class="k">end</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>All done in a single call to <code>rails g</code>. Hope you enjoy!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PyRegex has been updated!]]></title>
@@ -26,6 +94,8 @@ The basic topics are:</p>
   <li>Flask as python webapp framework</li>
   <li>Python 3.4</li>
 </ul>
+
+<!--more-->
 
 <h4 id="flask-as-python-webapp-framework">Flask as python webapp framework</h4>
 

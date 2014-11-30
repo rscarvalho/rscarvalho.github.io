@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | Rodolfo Carvalho]]></title>
+  <link href="http://rscarvalho.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://rscarvalho.github.io/"/>
+  <updated>2014-11-30T11:29:49-05:00</updated>
+  <id>http://rscarvalho.github.io/</id>
+  <author>
+    <name><![CDATA[Rodolfo Carvalho]]></name>
+    <email><![CDATA[rodolfo.ueg@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Taking advantage of your rails model generator]]></title>
+    <link href="http://rscarvalho.github.io/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/"/>
+    <updated>2014-11-30T09:51:26-05:00</updated>
+    <id>http://rscarvalho.github.io/blog/2014/11/30/taking-advantage-of-your-rails-model-generator</id>
+    <content type="html"><![CDATA[<p>This is a quick trick I haven’t explored until now (no really, didn’t know it like 5 minute ago).</p>
+
+<p>When you’re calling <code>rails g model</code> to generate your models, you have the option to pass in the field names inline, like this:</p>
+
+<p><code>
+$ rails g model UserRole user_id:integer role_id:integer extra_permissions:text
+</code></p>
+
+<p>The example above has something interesting: you create two columns of type <code>integer</code>: <code>role_id</code> and <code>user_id</code>. What you really want to express, however, is that you want ot hook up two <em>associations</em> in your <code>UserRole</code> model: <code>belongs_to :role</code> and <code>belongs_to :user</code>. After you generate this migration, you may have to do a couple of things by hand:</p>
+
+<ul>
+  <li>add <code>add_index</code> commands on the migration to create the index on <code>role_id</code> and <code>user_id</code> <strong>before</strong> running <code>rake db:migrate</code></li>
+  <li>add <code>belongs_to</code> associations in <code>app/models/user_role.rb</code></li>
+</ul>
+
+<p>Well, all of this manual typing can be just eliminated if you use this syntax instead:</p>
+
+<p><code>
+$ rails g model UserRole user:belongs_to role:belongs_to extra_permissions:text
+</code></p>
+
+<!--more-->
+
+<p>That’s it! We express the model with its <strong>data relations</strong> instead of raw database columns. As you can see in the generated code, rails already included the appropriate <code>belongs_to</code> and indexes to the files, like below:</p>
+
+<p><code>ruby app/models/user_role.rb
+class UserRole &lt; ActiveRecord::Base
+  belongs_to :user
+  belongs_to :role
+end
+</code></p>
+
+<p>And to the migration file:</p>
+
+<p>&#8220;`ruby db/migrate/20141130144340_create_user_roles.rb
+class CreateUserRoles &lt; ActiveRecord::Migration
+  def change
+    create_table :user_roles do |t|
+      t.belongs_to :user, index: true
+      t.belongs_to :role, index: true
+      t.text :extra_permissions</p>
+
+<pre><code>  t.timestamps
+end   end end ```
+</code></pre>
+
+<p>All done in a single call to <code>rails g</code>. Hope you enjoy!</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rodolfo Carvalho</title>
+  <title>Category: rails - Rodolfo Carvalho</title>
   <meta name="author" content="Rodolfo Carvalho">
 
   
-  <meta name="description" content="This is a quick trick I haven’t explored until now (no really, didn’t know it like 5 minute ago). When you’re calling rails g model to generate your &hellip;">
+  <meta name="description" content="Category: rails">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rscarvalho.github.io/">
+  <link rel="canonical" href="http://rscarvalho.github.io/blog/categories/rails/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -60,121 +60,40 @@
 </header>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/">Taking Advantage of Your Rails Model Generator</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-11-30T09:51:26-05:00" pubdate data-updated="true"></time>
-        
-      </p>
+    <h1 class="entry-title">Category: Rails</h1>
     
   </header>
+  
+  <div id="blog-archives" class="category">
 
 
-  <div class="entry-content"><p>This is a quick trick I haven’t explored until now (no really, didn’t know it like 5 minute ago).</p>
 
-<p>When you’re calling <code>rails g model</code> to generate your models, you have the option to pass in the field names inline, like this:</p>
+  
+  <h2>2014</h2>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">$ rails g model UserRole user_id:integer role_id:integer extra_permissions:text</span></code></pre></td></tr></table></div></figure></notextile></div>
+<article>
+  
+<h1><a href="/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/">Taking advantage of your rails model generator</a></h1>
+<time datetime="2014-11-30T09:51:26-05:00" pubdate><span class='month'>Nov</span> <span class='day'>30</span> <span class='year'>2014</span></time>
 
-<p>The example above has something interesting: you create two columns of type <code>integer</code>: <code>role_id</code> and <code>user_id</code>. What you really want to express, however, is that you want ot hook up two <em>associations</em> in your <code>UserRole</code> model: <code>belongs_to :role</code> and <code>belongs_to :user</code>. After you generate this migration, you may have to do a couple of things by hand:</p>
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/backend/'>backend</a>, <a class='category' href='/blog/categories/generators/'>generators</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/web-frameworks/'>web frameworks</a></span>
+</footer>
 
-<ul>
-  <li>add <code>add_index</code> commands on the migration to create the index on <code>role_id</code> and <code>user_id</code> <strong>before</strong> running <code>rake db:migrate</code></li>
-  <li>add <code>belongs_to</code> associations in <code>app/models/user_role.rb</code></li>
-</ul>
 
-<p>Well, all of this manual typing can be just eliminated if you use this syntax instead:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">$ rails g model UserRole user:belongs_to role:belongs_to extra_permissions:text</span></code></pre></td></tr></table></div></figure></notextile></div>
+</article>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/14/pyregex-has-been-updated/">PyRegex Has Been Updated!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
 
   
-
-
-<time datetime="2014-06-14T19:02:00-04:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I have been rolled a new version of <a href="http://www.pyregex.com">PyRegex</a>, with quite a big changeset on the backend.
-PyRegex users are not expected to see any changes neither in behavior nor UI, but I’d like to cover the changes here in more detail.
-The basic topics are:</p>
-
-<ul>
-  <li>Flask as python webapp framework</li>
-  <li>Python 3.4</li>
-</ul>
+</article>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/06/14/pyregex-has-been-updated/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives/"> Archives </a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section id="titles">
@@ -261,6 +180,7 @@ The basic topics are:</p>
 
   
 </aside>
+
 
     </div>
   </div>

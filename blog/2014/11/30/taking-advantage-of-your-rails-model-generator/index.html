@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rodolfo Carvalho</title>
+  <title>Taking advantage of your rails model generator - Rodolfo Carvalho</title>
   <meta name="author" content="Rodolfo Carvalho">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rscarvalho.github.io/">
+  <link rel="canonical" href="http://rscarvalho.github.io/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -60,15 +60,12 @@
 </header>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/">Taking Advantage of Your Rails Model Generator</a></h1>
+      <h1 class="entry-title">Taking Advantage of Your Rails Model Generator</h1>
     
     
       <p class="meta">
@@ -91,7 +88,7 @@
   </header>
 
 
-  <div class="entry-content"><p>This is a quick trick I haven’t explored until now (no really, didn’t know it like 5 minute ago).</p>
+<div class="entry-content"><p>This is a quick trick I haven’t explored until now (no really, didn’t know it like 5 minute ago).</p>
 
 <p>When you’re calling <code>rails g model</code> to generate your models, you have the option to pass in the field names inline, like this:</p>
 
@@ -110,27 +107,58 @@
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 </pre></td><td class="code"><pre><code class=""><span class="line">$ rails g model UserRole user:belongs_to role:belongs_to extra_permissions:text</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<!--more-->
+
+<p>That’s it! We express the model with its <strong>data relations</strong> instead of raw database columns. As you can see in the generated code, rails already included the appropriate <code>belongs_to</code> and indexes to the files, like below:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>app/models/user_role.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">class</span> <span class="nc">UserRole</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class="line">  <span class="n">belongs_to</span> <span class="ss">:user</span>
+</span><span class="line">  <span class="n">belongs_to</span> <span class="ss">:role</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>And to the migration file:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>db/migrate/20141130144340_create_user_roles.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">class</span> <span class="nc">CreateUserRoles</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+</span><span class="line">  <span class="k">def</span> <span class="nf">change</span>
+</span><span class="line">    <span class="n">create_table</span> <span class="ss">:user_roles</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class="line">      <span class="n">t</span><span class="o">.</span><span class="n">belongs_to</span> <span class="ss">:user</span><span class="p">,</span> <span class="ss">index</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class="line">      <span class="n">t</span><span class="o">.</span><span class="n">belongs_to</span> <span class="ss">:role</span><span class="p">,</span> <span class="ss">index</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class="line">      <span class="n">t</span><span class="o">.</span><span class="n">text</span> <span class="ss">:extra_permissions</span>
+</span><span class="line">
+</span><span class="line">      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
+</span><span class="line">    <span class="k">end</span>
+</span><span class="line">  <span class="k">end</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>All done in a single call to <code>rails g</code>. Hope you enjoy!</p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/14/pyregex-has-been-updated/">PyRegex Has Been Updated!</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Rodolfo Carvalho</span></span>
+
+      
 
 
 
@@ -142,39 +170,40 @@
   
 
 
-<time datetime="2014-06-14T19:02:00-04:00" pubdate data-updated="true"></time>
-        
-      </p>
+<time datetime="2014-11-30T09:51:26-05:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/backend/'>backend</a>, <a class='category' href='/blog/categories/generators/'>generators</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/web-frameworks/'>web frameworks</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rscarvalho.github.io/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/" data-via="rscarvalho" data-counturl="http://rscarvalho.github.io/blog/2014/11/30/taking-advantage-of-your-rails-model-generator/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
 
-
-  <div class="entry-content"><p>Today I have been rolled a new version of <a href="http://www.pyregex.com">PyRegex</a>, with quite a big changeset on the backend.
-PyRegex users are not expected to see any changes neither in behavior nor UI, but I’d like to cover the changes here in more detail.
-The basic topics are:</p>
-
-<ul>
-  <li>Flask as python webapp framework</li>
-  <li>Python 3.4</li>
-</ul>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/14/pyregex-has-been-updated/" title="Previous Post: PyRegex has been updated!">&laquo; PyRegex has been updated!</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/06/14/pyregex-has-been-updated/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives/"> Archives </a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section id="titles">
@@ -261,6 +290,7 @@ The basic topics are:</p>
 
   
 </aside>
+
 
     </div>
   </div>
