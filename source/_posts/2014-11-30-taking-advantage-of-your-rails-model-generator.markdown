@@ -27,8 +27,7 @@ rails g model UserRole user:belongs_to role:belongs_to extra_permissions:text
 
 That's it! We express the model with its **data relations** instead of raw database columns. As you can see in the generated code, rails already included the appropriate `belongs_to` and indexes to the files, like below:
 
-```ruby
-# app/models/user_role.rb
+```ruby app/models/user_role.rb
 class UserRole < ActiveRecord::Base
   belongs_to :user
   belongs_to :role
@@ -37,8 +36,7 @@ end
 
 And to the migration file:
 
-```ruby
-# db/migrate/20141130144340_create_user_roles.rb
+```ruby db/migrate/20141130144340_create_user_roles.rb
 class CreateUserRoles < ActiveRecord::Migration
   def change
     create_table :user_roles do |t|
