@@ -3,7 +3,7 @@ layout: post
 title: "PyRegex has been updated!"
 date: 2014-06-14 19:02
 comments: true
-categories: pyregex, python, regex, open source
+categories: [pyregex, python, regex, open source]
 ---
 
 Today I have been rolled a new version of [PyRegex](http://www.pyregex.com), with quite a big changeset on the backend.
