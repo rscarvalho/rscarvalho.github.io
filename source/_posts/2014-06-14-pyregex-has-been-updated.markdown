@@ -13,6 +13,7 @@ The basic topics are:
 * Flask as python webapp framework
 * Python 3.4
 
+<!--more-->
 
 #### Flask as python webapp framework
 

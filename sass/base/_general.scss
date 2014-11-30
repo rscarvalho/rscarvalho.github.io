@@ -47,7 +47,7 @@
     text-decoration: none;
 }
 
-/* Each icon is created by inserting the corret character into the
+/* Each icon is created by inserting the corret character into the 
    content of the :before pseudo element. Like a boss. */
 .icon-ghost:before {
     content: "\e000";
@@ -268,8 +268,8 @@ kbd {
     font-weight: bold;
     background: #f4f4f4;
     border-radius: 4px;
-    box-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.2),
+    box-shadow: 
+        0 1px 0 rgba(0, 0, 0, 0.2), 
         0 1px 0 0 #fff inset;
 }
 
@@ -349,7 +349,6 @@ table.plain {
     color: #fff;
     text-decoration: none;
     transition: none;
-    text-shadow: #404040 -2px 2px;
 }
 
 .no-rollover:hover {
@@ -369,32 +368,8 @@ table.plain {
     margin-bottom: 5rem;
     text-align: center;
     color: #fff;
-    background: url('/images/background.jpg') #303538 no-repeat center center;
+    background: #303538 no-repeat center center;
     background-size: cover;
-}
-
-.main-navigation {
-    text-align: center;
-
-    li {
-        display: inline-block;
-
-        a {
-            font-family: 'Open Sans', sans-serif;
-            text-decoration: none;
-        }
-
-        &:after {
-            content: '•';
-            margin-right: 10px;
-            margin-left: 10px;
-        }
-
-        &:last-child:after {
-            content: none;
-            margin: 0;
-        }
-    }
 }
 
 /* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
@@ -429,7 +404,6 @@ table.plain {
     font-weight: 300;
     font-family: 'Droid Serif', serif;
     letter-spacing: 0;
-    text-shadow: #404040 -1px 1px;
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
@@ -809,9 +783,9 @@ table.plain {
     }
 
     #site-head {
-        -webkit-box-sizing: border-box;
+        -webkit-box-sizing: border-box; 
         -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        box-sizing: border-box; 
         height: auto;
         min-height: 240px;
         padding: 15% 0;
@@ -870,7 +844,7 @@ table.plain {
         max-height: 80px;
     }
 
-    .inner,
+    .inner, 
     .pagination {
         width: auto;
         margin-left: 16px;
@@ -891,12 +865,10 @@ table.plain {
 
     .blog-title {
         font-size: 3rem;
-        text-shadow: -2px 2px;
     }
 
     .blog-description {
         font-size: 1.5rem;
-        text-shadow: #404040 -1px 1px;
     }
 
 
