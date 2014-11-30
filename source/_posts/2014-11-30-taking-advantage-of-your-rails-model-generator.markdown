@@ -3,7 +3,12 @@ layout: post
 title: "Taking advantage of your rails model generator"
 date: 2014-11-30 09:51:26 -0500
 comments: true
-categories: [rails, ruby, generators, web frameworks, backend]
+categories:
+- rails
+- ruby
+- generators
+- web frameworks
+- backend
 ---
 
 This is a quick trick I haven't explored until now (no really, didn't know it like 5 minute ago).

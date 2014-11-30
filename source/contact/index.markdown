@@ -5,6 +5,7 @@ date: 2014-06-15 14:25
 comments: true
 sharing: true
 footer: true
+categories: []
 ---
 
 <div id="wufoo-zyuiv0i1kxwbsj">

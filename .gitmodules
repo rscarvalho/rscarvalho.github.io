@@ -1,3 +1,9 @@
 [submodule ".themes/casper"]
 	path = .themes/casper
 	url = https://github.com/jmromer/casper
+[submodule ".themes/emd-theme"]
+	path = .themes/emd-theme
+	url = git@github.com:vidblog/emd-theme.git
+[submodule ".themes/oct2"]
+	path = .themes/oct2
+	url = https://github.com/bijumon/oct2.git

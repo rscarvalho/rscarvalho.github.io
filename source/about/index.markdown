@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "About Rodolfo Carvalho"
 date: 2014-06-15 13:34
 comments: true
@@ -7,8 +7,8 @@ sharing: true
 footer: true
 ---
 
-<div style="float: left; width: 150px; height: 150px; border-radius: 150px; display: inline-block; overflow: hidden; margin: 0 10px 10px 0">
-    <img src="/images/me.jpg" style="width: 100%; display: inline-block">
+<div style="float: left; width: 150px; height: 150px; display: inline-block; overflow: hidden; margin: 0 10px 10px 0">
+    <img src="/images/me.jpg" style="width: 120%; display: inline-block">
 </div>
 
 I am a software engineer with more than 8 years of software engineering experience developing large-scale web applications using the latest web technologies.
